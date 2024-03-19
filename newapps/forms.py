@@ -1,14 +1,9 @@
-from django.contrib.auth import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, User
 from django.forms.widgets import PasswordInput, TextInput
 from django import forms
 
-from .models import Record, User
+from .models import Record
 
-
-class BaseRecordForm(forms.ModelForm):
-    class Meta:
-        model = Record
-        fields = ['first_name', 'last_name', 'work_email', 'work_phone', 'address', 'city', 'province', 'country']
 
 # - Register a user
 
@@ -24,8 +19,52 @@ class LoginForm(AuthenticationForm):
     username = forms.CharField(widget=TextInput())
     password = forms.CharField(widget=PasswordInput())
 
-class CreateRecordForm(BaseRecordForm):
-    pass
+class CreateRecordForm(forms.ModelForm):
+    class Meta:
+        model = Record
+        fields = ['first_name', 'last_name', 'email', 'phone', 'address', 'city', 'province', 'country']
 
-class UpdateRecordForm(BaseRecordForm):
-    pass
+class UpdateRecordForm(forms.ModelForm):
+        model = Record
+        fields = ['first_name', 'last_name', 'email', 'phone', 'address', 'city', 'province', 'country']
+
+
+
+
+
+# - Register/Create a user
+
+class CreateUserForm(UserCreationForm):
+
+    class Meta:
+
+        model = User
+        fields = ['username', 'password1', 'password2']
+
+
+# - Login a user
+
+class LoginForm(AuthenticationForm):
+
+    username = forms.CharField(widget=TextInput())
+    password = forms.CharField(widget=PasswordInput())
+
+
+# - Create a record
+
+class CreateRecordForm(forms.ModelForm):
+
+    class Meta:
+
+        model = Record
+        fields = ['first_name', 'last_name', 'email', 'phone', 'address', 'city', 'province', 'country']
+
+
+# - Update a record
+
+class UpdateRecordForm(forms.ModelForm):
+
+    class Meta:
+
+        model = Record
+        fields = ['first_name', 'last_name', 'email', 'phone', 'address', 'city', 'province', 'country']

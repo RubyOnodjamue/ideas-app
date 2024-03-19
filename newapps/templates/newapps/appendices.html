@@ -1,4 +1,4 @@
-{% extends 'newapps/foundation.html' %}
+{% extends 'newapps/base.html' %}
 
 {% block content %}
 
@@ -18,9 +18,11 @@
 
             <br>
 
-            <a class="btn btn-primary" type="button" href="{% url '' %}"> Account creation </a>
+            <a class="btn btn-primary" type="button" href="{% url 'register' %}"> Account creation &nbsp; <i class="fa fa-user-plus" aria-hidden="true"></i> </a>
+        
             
         </div>
+
     </body>
     
 {% endblock %}
