@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 
+from django.http import HttpResponse
+
 from .forms import CreateUserForm, LoginForm, CreateRecordForm, UpdateRecordForm
 
 from django.contrib.auth.models import auth
+
 from django.contrib.auth import authenticate
 
 from django.contrib.auth.decorators import login_required
@@ -15,7 +18,7 @@ from django.contrib import messages
 
 # - Homepage
 
-def base(request):
+def home(request):
     
     return render(request, 'newapps/appendices.html')
 
@@ -44,8 +47,9 @@ def register(request):
 
 # - Login a user
 
-def my_login(request):
+def login(request):
 
+     # check if the request is get, if it is get render the html
     form = LoginForm()
 
     if request.method == "POST":
@@ -67,7 +71,7 @@ def my_login(request):
 
         context = {'form':form}
 
-        return render(request, 'newapps/register.html', context=context)
+        return render(request, 'newapps/login.html', context=context)
 
 
 # - Dashboard
@@ -79,7 +83,7 @@ def controlpanel(request):
 
     context = {'records': my_records}
 
-    return render(request, 'webapp/controlpanel.html', context=context)
+    return render(request, 'newapps/controlpanel.html', context=context)
 
 
 # - Create a record 
@@ -129,7 +133,7 @@ def update_idea(request, pk):
         
     context = {'form':form}
 
-    return render(request, 'webapp/update-record.html', context=context)
+    return render(request, 'newapps/update-idea.html', context=context)
 
 
 # - Read / View a singular record
@@ -141,7 +145,7 @@ def singular_record(request, pk):
 
     context = {'record':all_records}
 
-    return render(request, 'webapp/view-record.html', context=context)
+    return render(request, 'newapps/view-record.html', context=context)
 
 
 # - Delete a record
