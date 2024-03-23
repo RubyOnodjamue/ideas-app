@@ -17,7 +17,7 @@ urlpatterns = [
 
     path('controlpanel', views.controlpanel, name="controlpanel"),
 
-    path('add-idea', views.add_idea, name="create-record"),
+    path('add-idea', views.add_idea, name="add-idea"),
 
     path('update-idea/<int:pk>', views.update_idea, name='update-idea'),
 
