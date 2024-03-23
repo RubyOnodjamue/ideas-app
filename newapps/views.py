@@ -69,9 +69,9 @@ def login(request):
 
                 return redirect("controlpanel")
 
-        context = {'form':form}
+    context = {'form':form}
 
-        return render(request, 'newapps/login.html', context=context)
+    return render(request, 'newapps/login.html', context=context)
 
 
 # - Dashboard
