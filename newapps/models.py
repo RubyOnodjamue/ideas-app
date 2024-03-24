@@ -11,15 +11,19 @@ class Record(models.Model):
 
     email = models.CharField(max_length=255)
 
-    phone = models.CharField(max_length=20)
+    role = models.CharField(max_length=100)
 
-    address = models.CharField(max_length=300)
+    idea_ID = models.CharField(max_length=20)
 
-    city = models.CharField(max_length=255)
+    idea_name = models.CharField(max_length=100)
 
-    province = models.CharField(max_length=200)
+    idea_description = models.CharField(max_length=255)
 
-    country = models.CharField(max_length=125)
+    idea_dependencies = models.CharField(max_length=255)
+
+    idea_comments = models.CharField(max_length=300)
+
+    idea_votes = models.CharField(max_length=100)
 
 
     def __str__(self):
