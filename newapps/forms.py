@@ -1,5 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, get_user_model, AbstractUser
-from django.db import models
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, User, Role
 from django.forms.widgets import PasswordInput, TextInput
 from django import forms
 
@@ -8,11 +7,14 @@ from .models import Record
 
 # - Register a user
 
-class CustomUserCreationForm(UserCreationForm):   
-    class Meta(UserCreationForm.Meta):
-        model = get_user_model()
+class CreateUserForm(UserCreationForm):   
+    class Meta:
+        model = User
         fields = ['username', 'role', 'password1', 'password2']
 
+    class Meta:
+        model = Role
+        fields = ['Software Engineer', 'Test Engineer', 'Dev Ops', 'Scrum Master', 'Product Owner']
 
 # - User login
 

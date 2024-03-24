@@ -32,13 +32,7 @@ INSTALLED_APPS = [
     'newapps',
 
     'crispy_forms',
-
 ]
-
-AUTH_USER_MODEL = 'newapps.CustomUser' 
-
-
-
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
