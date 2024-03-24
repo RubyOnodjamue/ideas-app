@@ -48,7 +48,9 @@
 
     &nbsp;
 
-    <a href="{% url 'delete-record' record.id %}" class="btn btn-danger"> Delete &nbsp;<i class="fa fa-minus-square" aria-hidden="true"></i> </a>
+    {%if user.is_superuser%}
+        <a href="{% url 'delete-record' record.id %}" class="btn btn-danger"> Delete &nbsp;<i class="fa fa-minus-square" aria-hidden="true"></i> </a>
+    {%endif%}
 
 
 {% endblock %}

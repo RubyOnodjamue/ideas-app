@@ -140,7 +140,6 @@ def update_idea(request, pk):
 
 @login_required(login_url='my-login')
 def singular_record(request, pk):
-
     all_records = Record.objects.get(id=pk)
 
     context = {'record':all_records}
@@ -152,6 +151,8 @@ def singular_record(request, pk):
 
 @login_required(login_url='login')
 def delete_record(request, pk):
+    if not request.user.is_superuser:
+        return redirect("controlpanel")
 
     record = Record.objects.get(id=pk)
 
