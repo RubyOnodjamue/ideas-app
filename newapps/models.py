@@ -1,6 +1,18 @@
 from django.db import models
+from django.contrib.auth.forms import AbstractUser
 
-# Create your models here.
+class CustomUser(AbstractUser):
+    ROLE_CHOICES = (
+        ('Software Engineer', 'software engineer')
+        ('Test Engineer', 'test engineer')
+        ('Dev Ops', 'dev ops')
+        ('Scrum Master', 'scrum master')
+        ('Product Owner', 'product owner')
+    
+    
+    )    
+    role = models.CharField(choices=ROLE_CHOICES, default='user')
+
 class Record(models.Model):
 
     creation_date = models.DateTimeField(auto_now_add=True)
@@ -29,3 +41,5 @@ class Record(models.Model):
     def __str__(self):
 
         return self.first_name + "   " + self.last_name
+    
+
