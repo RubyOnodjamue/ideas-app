@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <h5> Hi, {{user}}! Welcome to IdeaLog👋 </h5>
+    <h5> Hi, {{user}}! Welcome to IdeaLog {%if user.is_superuser%}👋{%endif%} </h5>
 
     <hr>
 

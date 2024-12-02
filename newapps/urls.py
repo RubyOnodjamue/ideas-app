@@ -1,11 +1,11 @@
 
 from django.urls import path
 
-from . import views
+from . import views 
 
 urlpatterns = [
 
-    path('', views.base, name=""),
+    path('', views.home, name=""),
 
     path('register', views.register, name="register"),
 
@@ -17,14 +17,12 @@ urlpatterns = [
 
     path('controlpanel', views.controlpanel, name="controlpanel"),
 
-    path('add-idea', views.add_idea, name="create-record"),
+    path('add-idea', views.add_idea, name="add-idea"),
 
     path('update-idea/<int:pk>', views.update_idea, name='update-idea'),
 
     path('record/<int:pk>', views.singular_record, name="record"),
 
     path('delete-record/<int:pk>', views.delete_record, name="delete-record"),
-
-    
 
 ]
